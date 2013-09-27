@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="horizontal" >
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_weight="20"
+        android:background="#FFFFFF"
+        android:orientation="vertical" >
+    
+    <TextView
+        android:id="@+id/device_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        />
+    
+    <TextView
+        android:id="@+id/device_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        />
+	</LinearLayout>
+
+	<LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="center|center_vertical"
+	    android:layout_weight="30"
+	    android:orientation="horizontal" >
+
+    <RelativeLayout
+        android:layout_width="30dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_gravity="center" >
+
+        <ProgressBar
+            android:id="@+id/batteryStatus"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="3dp"
+            android:indeterminateOnly="false"
+            android:max="100"
+            android:progress="15"
+            android:progressDrawable="@drawable/battery_status_low" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/battery"
+            android:gravity="center"
+            android:textColor="#333333"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="30dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_gravity="center" >
+
+        <ProgressBar
+            android:id="@+id/memoryStatus"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="2dp"
+            android:indeterminateOnly="false"
+            android:max="100"
+            android:progress="30"
+            android:progressDrawable="@drawable/battery_status_ok" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/memory_1"
+            android:gravity="center"
+            android:textColor="#333333"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+	</LinearLayout>
+
+	<TextView
+	    android:id="@+id/temp"
+	    android:layout_width="70dp"
+	    android:layout_height="70dp"
+	    android:layout_gravity="center_vertical|right"
+	    android:layout_marginBottom="5dp"
+	    android:layout_marginLeft="2dp"
+	    android:layout_marginRight="2dp"
+	    android:layout_marginTop="5dp"
+	    android:background="@drawable/black_circle"
+	    android:gravity="center"
+	    android:textColor="#FFFFFF"
+	    android:textSize="25sp" />
+
+</LinearLayout>

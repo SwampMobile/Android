@@ -1,0 +1,75 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="30dp"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    android:paddingTop="30dp"
+    android:orientation="horizontal"
+    tools:context=".MainActivity" >
+
+    <!--<TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:textSize="60sp"
+        android:textColor="#0033FF"
+        android:text="Quanify" />-->
+    <ImageView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:layout_weight="50"
+        android:adjustViewBounds="true"
+        android:src="@drawable/title"
+        />
+    <LinearLayout android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_weight="50"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+    <com.quanify.views.SquareButton 
+        android:id="@+id/local_devices"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/thermometer"
+        android:scaleType="centerInside"
+        android:padding="15dp"
+        android:background="@drawable/main_button_bk"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:text="LOCAL DEVICES"
+        android:layout_marginBottom="30dp"
+        />
+    <com.quanify.views.SquareButton 
+        android:id="@+id/past_records"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/folder"
+        android:scaleType="centerInside"
+        android:padding="15dp"
+        android:background="@drawable/main_button_bk"
+        />
+   
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:text="Past Records"
+        />
+	 </LinearLayout>
+</LinearLayout>
