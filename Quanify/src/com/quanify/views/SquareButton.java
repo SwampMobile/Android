@@ -2,7 +2,6 @@ package com.quanify.views;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 public class SquareButton extends ImageButton {

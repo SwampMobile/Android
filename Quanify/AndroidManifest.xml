@@ -7,21 +7,21 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
-    
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
-	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
-	
-	<uses-permission android:name="android.permission.CAMERA"/>
-	<uses-permission android:name="android.permission.INTERNET"/>
-	
-	<uses-feature android:name="android.hardware.bluetooth_le" 
-	    android:required="true"/>
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/ic_launch"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name="com.quanify.activities.MainActivity"
             android:label="@string/app_name" >
@@ -31,11 +31,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.quanify.activities.DatabaseSearchActivity" android:label="Quanify Database" />
-        <activity android:name="com.quanify.activities.DatabaseSearchResultsActivity" android:label="Search Results" />
-        <activity android:name="com.quanify.activities.LocalDevicesActivity" android:label="Devices" />
-        <activity android:name="com.quanify.activities.DeviceInfoActivity" android:label="Device Info" />
-        <activity android:name="com.quanify.activities.TempHistoryActivity" android:label="Temperature History" />
+        <activity
+            android:name="com.quanify.activities.DatabaseSearchActivity"
+            android:label="Quanify Database" />
+        <activity
+            android:name="com.quanify.activities.DatabaseSearchResultsActivity"
+            android:label="Search Results" />
+        <activity
+            android:name="com.quanify.activities.LocalDevicesActivity"
+            android:label="Devices" />
+        <activity
+            android:name="com.quanify.activities.DeviceInfoActivity"
+            android:label="Device Info" />
+        <activity
+            android:name="com.quanify.activities.TempHistoryActivity"
+            android:label="Temperature History" />
+        <activity
+            android:name="com.quanify.activities.ViewDataActivity"
+            android:label="@string/title_activity_view_data" >
+        </activity>
+        <activity
+            android:name="com.quanify.activities.ShipmentConfigurationActivity"
+            android:label="Shipment Configuration" >
+        </activity>
     </application>
 
 </manifest>

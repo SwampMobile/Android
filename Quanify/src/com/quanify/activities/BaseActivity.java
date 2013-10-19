@@ -1,20 +1,12 @@
 package com.quanify.activities;
 
+import android.app.ProgressDialog;
+import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.MenuItem;
 import com.quanify.fragments.SimpleAlertFragment;
-
-import android.app.Activity;
-import android.app.Dialog;
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentActivity;
-import android.view.Menu;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 
 public class BaseActivity extends SherlockFragmentActivity
 {

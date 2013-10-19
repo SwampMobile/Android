@@ -13,9 +13,8 @@
             android:clipOrientation="horizontal"
             android:gravity="left" >
             <shape android:shape="rectangle" >
-                <corners android:radius="3dp" />
 
-                <solid android:color="#E04D2B" />
+                <solid android:color="#38949C" />
             </shape>
         </clip>
     </item>

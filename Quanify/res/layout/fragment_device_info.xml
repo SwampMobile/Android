@@ -18,18 +18,58 @@
                 android:id="@+id/device_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
                 android:gravity="center"
+                android:padding="5dp"
                 android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="ID "
+                    android:textColor="#333333"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/device_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:textColor="#333333"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="DEVICE DETAILS"
+                android:textColor="#727376"
+                android:textSize="17sp"
                 android:textStyle="bold" />
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="#000000" />
+                android:layout_height="3px"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="#727376" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -39,6 +79,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="50"
                     android:orientation="vertical" >
 
@@ -51,33 +92,33 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_weight="30"
-                            android:gravity="center"
                             android:layout_marginBottom="5dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
                             android:layout_marginTop="5dp"
-                            android:padding="10dp"
-                            android:text="ID "
+                            android:layout_weight="30"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Lot# "
                             android:textColor="#333333"
                             android:textSize="15sp"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/device_id"
+                            android:id="@+id/lotnumber"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:gravity="center"
-                            android:layout_weight="70"
                             android:layout_marginBottom="5dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
                             android:layout_marginTop="5dp"
+                            android:layout_weight="70"
                             android:background="@drawable/note_bk_left"
-                            android:padding="10dp"
+                            android:gravity="center"
+                            android:padding="5dp"
                             android:textColor="#FFFFFF"
-                            android:textSize="20sp" />
+                            android:textSize="17sp" />
                     </LinearLayout>
                     <!--
                 <LinearLayout
@@ -149,19 +190,21 @@
                                     android:indeterminateOnly="false"
                                     android:max="100"
                                     android:progress="100"
-                                    android:progressDrawable="@drawable/battery_status_good" />
+                                    android:progressDrawable="@drawable/status_good" />
 
                                 <TextView
+                                    android:id="@+id/chargeText"
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
                                     android:background="@drawable/battery"
                                     android:gravity="center"
                                     android:padding="10dp"
+                                    android:text="100%"
                                     android:textColor="#333333"
-                                    android:textSize="20sp"
+                                    android:textSize="11sp"
                                     android:textStyle="bold" />
                             </RelativeLayout>
-
+                            <!--
                             <TextView
                                 android:id="@+id/chargeText"
                                 android:layout_width="wrap_content"
@@ -171,15 +214,16 @@
                                 android:textColor="#333333"
                                 android:textSize="15sp"
                                 android:textStyle="bold" />
+                            -->
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="50"
-                            android:gravity="center"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
+                            android:layout_weight="50"
+                            android:gravity="center"
                             android:orientation="vertical" >
 
                             <RelativeLayout
@@ -188,7 +232,7 @@
                                 android:layout_gravity="center" >
 
                                 <ProgressBar
-                                    android:id="@+id/memoryStatus"
+                                    android:id="@+id/signalStatus"
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
                                     android:layout_marginBottom="4dp"
@@ -198,19 +242,19 @@
                                     android:indeterminateOnly="false"
                                     android:max="100"
                                     android:progress="100"
-                                    android:progressDrawable="@drawable/battery_status_good" />
+                                    android:progressDrawable="@drawable/progress" />
 
                                 <TextView
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
-                                    android:background="@drawable/memory_1"
+                                    android:background="@drawable/signalbars"
                                     android:gravity="center"
                                     android:padding="10dp"
                                     android:textColor="#333333"
                                     android:textSize="20sp"
                                     android:textStyle="bold" />
                             </RelativeLayout>
-
+                            <!--
                             <TextView
                                 android:id="@+id/memoryText"
                                 android:layout_width="wrap_content"
@@ -220,7 +264,46 @@
                                 android:textColor="#333333"
                                 android:textSize="15sp"
                                 android:textStyle="bold" />
+                            -->
                         </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="30"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Status "
+                            android:textColor="#333333"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/connectionStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="70"
+                            android:background="@drawable/note_bk_left"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="disconnected"
+                            android:textColor="#FFFFFF"
+                            android:textSize="17sp" />
                     </LinearLayout>
                     <!--
                 <LinearLayout
@@ -354,27 +437,30 @@
                 </LinearLayout>
                     -->
                 </LinearLayout>
-                <LinearLayout android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="50"
-            android:gravity="center"
-            android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    android:orientation="vertical" >
 
                     <TextView
                         android:id="@+id/temp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="75"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:layout_marginBottom="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginTop="5dp"
+                        android:layout_weight="50"
+                        android:background="@drawable/black_circle"
                         android:gravity="center"
-                        android:background="@drawable/note_bk_left"
+                        android:text="1200\u00B0C"
+                        android:textAlignment="center"
                         android:textColor="#FFFFFF"
-                        android:textSize="70sp" 
-                        android:textAlignment="center"/>
-                    
+                        android:textSize="40sp" />
+                    <!--
                     <TextView
                         android:id="@+id/device_status"
                         android:layout_width="match_parent"
@@ -390,26 +476,25 @@
                         android:textSize="20sp"
                         android:textStyle="bold"
                         android:textAlignment="center" />
+                    -->
                 </LinearLayout>
-
             </LinearLayout>
-
-            
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="Temperature History"
-                android:textSize="22sp" />
+                android:gravity="left"
+                android:text="TEMPERATURE HISTORY"
+                android:textColor="#727376"
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="#000000" />
+                android:layout_height="3px"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="#727376" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -417,59 +502,261 @@
                 android:layout_marginBottom="20dp"
                 android:orientation="horizontal" >
 
-                <TextView
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Min\n32\u00B0F"
-                    android:textSize="30sp" />
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text=""
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Tag"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+                    
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Probe"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+                    
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Min"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tagMin"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="32\u00B0C"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+                    
+                    <TextView
+                        android:id="@+id/probeMin"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="32\u00B0C"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+                    
+                </LinearLayout>
 
                 <View
                     android:layout_width="1px"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
                     android:background="#AAAAAA" />
 
-                <TextView
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Max\n37\u00B0F"
-                    android:textSize="30sp" />
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Max"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tagMax"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="48\u00B0C"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+                    
+                    <TextView
+                        android:id="@+id/probeMax"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="32\u00B0C"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+                    
+                </LinearLayout>
 
                 <View
                     android:layout_width="1px"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
                     android:background="#AAAAAA" />
 
-                <TextView
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Avg\n35\u00B0F"
-                    android:textSize="30sp" />
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Avg"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tagAvg"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="35\u00B0C"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+                    
+                    <TextView
+                        android:id="@+id/probeAvg"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="35\u00B0C"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+                    
+                </LinearLayout>
             </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="Locations"
-                android:textSize="22sp" />
+                android:gravity="left"
+                android:text="SHOCK HISTORY"
+                android:textColor="#727376"
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="#000000" />
+                android:layout_height="3px"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="#727376" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Max : "
+                    android:textColor="#333333"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/shockMax"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/note_bk_left"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textColor="#FFFFFF"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="# : "
+                    android:textColor="#333333"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/shockNumber"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/note_bk_left"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textColor="#FFFFFF"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="LOCATION HISTORY"
+                android:textColor="#727376"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3px"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="#727376" />
 
             <LinearLayout
                 android:id="@+id/locations"
@@ -492,8 +779,9 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:background="@drawable/main_button_bk"
+            android:drawableStart="@drawable/graphicon"
             android:padding="10dp"
-            android:text="View Temp History"
+            android:text="View More Data"
             android:textColor="#FFFFFF" />
 
         <Button
@@ -503,19 +791,9 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:background="@drawable/main_button_bk"
+            android:drawableStart="@drawable/settings"
             android:padding="10dp"
-            android:text="Edit Record"
-            android:textColor="#FFFFFF" />
-
-        <Button
-            android:id="@+id/reset_record"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@drawable/main_button_bk"
-            android:padding="10dp"
-            android:text="Reset Device"
+            android:text="Settings"
             android:textColor="#FFFFFF" />
     </LinearLayout>
 

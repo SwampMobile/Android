@@ -1,17 +1,12 @@
 package com.quanify.activities;
 
-import com.quanify.R;
-import com.quanify.R.id;
-import com.quanify.R.layout;
-import com.quanify.R.menu;
-
-import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
-import android.view.Menu;
+import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+
+import com.quanify.R;
 
 public class DatabaseSearchActivity extends BaseActivity 
 {

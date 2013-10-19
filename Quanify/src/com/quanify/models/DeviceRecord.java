@@ -18,6 +18,7 @@ import android.content.Intent;
 import android.util.Log;
 
 import com.quanify.app.WriteQueue;
+import com.quanify.changenotificationobjects.TemperatureChangeObject;
 import com.quanify.sensors.Temperature;
 
 public class DeviceRecord extends BluetoothGattCallback
@@ -37,6 +38,11 @@ public class DeviceRecord extends BluetoothGattCallback
 	public float minTemp;
 	public float maxTemp;
 	public float avgTemp;
+	public int rssi;
+	private int batteryProgress = 50;
+	private int memoryProgress = 50;
+	public boolean isDevice = false;
+
 	public List<LocationAndTime> locationHistory;
 	public BluetoothGatt mBluetoothGatt;
 	private final static String TAG = "DeviceRecord";
@@ -67,11 +73,39 @@ public class DeviceRecord extends BluetoothGattCallback
     	PROPERTY_HUMIDITY = "HUMIDITY", PROPERTY_MAGNETOMETER = "MAGNETOMETER", 
     	PROPERTY_GYROSCOPE = "GYROSCOPE", PROPERTY_SIMPLE_KEYS = "SIMPLE_KEYS",
     	PROPERTY_BAROMETER = "BAROMETER";
+    
+    
+    public int getBatteryProgress() {
+		return batteryProgress;
+	}
+
+	private void setBatteryProgress(int batteryProgress) {
+		this.batteryProgress = batteryProgress;
+	}
+	
+	public int getMemoryProgress() {
+		return memoryProgress;
+	}
+	
+	public int getSignalStatus() {
+		if(device == null)
+			return 50;
+		return 100 + rssi;
+	}
+	
+	public void setrssi(int rssi) {
+		this.rssi = rssi;
+	}
+
+	private void setMemoryProgress(int memoryProgress) {
+		this.memoryProgress = memoryProgress;
+	}
 	
 	public void addDevice(BluetoothDevice device) {
 		this.device = device;
 		name = device.getName();
 		id = device.getAddress();
+		isDevice = true;
 	}
 	
 	@Override
@@ -211,6 +245,7 @@ public class DeviceRecord extends BluetoothGattCallback
     @Override
     public void onReadRemoteRssi (BluetoothGatt gatt, int rssi, int status){
     	Log.d("DeviceRecord", name +" descriptor write");
+    	this.rssi = rssi;
     }
     
     @Override
@@ -224,6 +259,7 @@ public class DeviceRecord extends BluetoothGattCallback
     }
     
     public void connectToDevice(Context context) {	
+    	if(device != null)
     		mBluetoothGatt = this.device.connectGatt(context, true, this);
     }
     
@@ -231,7 +267,7 @@ public class DeviceRecord extends BluetoothGattCallback
     public void addPropertyChangeListener(PropertyChangeListener listener) {
       //Don't add the same object twice. I can't imagine a use-case where you would want to do that.
       List<PropertyChangeListener> listeners = Arrays.asList(changeSupport.getPropertyChangeListeners());
-      if (!listeners.contains(this))
+      if (!listeners.contains(listener))
         changeSupport.addPropertyChangeListener(listener);
     }
 
@@ -243,16 +279,18 @@ public class DeviceRecord extends BluetoothGattCallback
       double oldValue = ambTemp;
       ambTemp = newValue;
      
-      changeSupport.firePropertyChange(PROPERTY_AMBIENT_TEMPERATURE, oldValue, ambTemp);
+      changeSupport.firePropertyChange(PROPERTY_AMBIENT_TEMPERATURE, null, new TemperatureChangeObject(oldValue, newValue));
     }
 
     public void setTargetTemperature(double newValue) {
     	double oldValue = targetTemp;
     	targetTemp = newValue;
 
-    	changeSupport.firePropertyChange(PROPERTY_AMBIENT_TEMPERATURE, oldValue, targetTemp);
+    	changeSupport.firePropertyChange(PROPERTY_AMBIENT_TEMPERATURE, null,  new TemperatureChangeObject(oldValue, newValue));
 
     }
+
+	
 
 //    public void setAccelerometer(double x, double y, double z) {
 //      Point3D newValue = new Point3D(x, y, z);

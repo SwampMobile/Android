@@ -22,7 +22,7 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.quanify.R;
 import com.quanify.adapters.DeviceListAdapter;
-import com.quanify.app.MockData;
+import com.quanify.app.DeviceList;
 import com.quanify.models.DeviceRecord;
 
 public class LocalDevicesActivity extends BaseActivity implements PropertyChangeListener
@@ -73,7 +73,7 @@ public class LocalDevicesActivity extends BaseActivity implements PropertyChange
         mLeScanCallback =
                 new BluetoothAdapter.LeScanCallback() {
             @Override
-            public void onLeScan(final BluetoothDevice device, int rssi,
+            public void onLeScan(final BluetoothDevice device,final int rssi,
                     byte[] scanRecord) {
                 runOnUiThread(new Runnable() {
                    @Override
@@ -83,7 +83,8 @@ public class LocalDevicesActivity extends BaseActivity implements PropertyChange
 //                		   addressList.add(device.getAddress());
 //                	   }
 //                	   Log.d("Detected Bluetooth",""+bluetoothDevList.size());
-                       MockData.getInstance().addDevice(getApplicationContext(), device,listener);
+                	   
+                       DeviceList.getInstance().addDevice(getApplicationContext(), device, listener, rssi);
                        listAdapter.notifyDataSetChanged();
                    }
                });
@@ -99,6 +100,8 @@ public class LocalDevicesActivity extends BaseActivity implements PropertyChange
 				syncAll();
 			}
 		});
+        
+        
     }
     
     @Override
@@ -108,7 +111,7 @@ public class LocalDevicesActivity extends BaseActivity implements PropertyChange
     	    Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
     	    startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
     	} 
-    	refreshList();
+    	//refreshList();
     }
     
     @Override
@@ -132,7 +135,7 @@ public class LocalDevicesActivity extends BaseActivity implements PropertyChange
 	}
     
     private void syncAll() {
-    	List<DeviceRecord> localDevices = new ArrayList<DeviceRecord>(MockData.getInstance().getLocalDevices());
+    	List<DeviceRecord> localDevices = new ArrayList<DeviceRecord>(DeviceList.getInstance().getLocalDevices());
 		for(DeviceRecord dRecord :localDevices) {
 			dRecord.connectToDevice(getApplicationContext());
 		}
@@ -170,7 +173,7 @@ public class LocalDevicesActivity extends BaseActivity implements PropertyChange
     private void scanLeDevice(final boolean enable) {
         if (enable) {
         	showLoadingDialog("", "Refreshing Device Info...");
-        	MockData.getInstance().refershList();
+        	DeviceList.getInstance().refershList();
             // Stops scanning after a pre-defined scan period.
             mHandler.postDelayed(new Runnable() {
                 @Override

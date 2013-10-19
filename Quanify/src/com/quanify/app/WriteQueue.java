@@ -12,12 +12,12 @@
   Software unless you agree to abide by the terms of the License. 
   The License limits your use, and you acknowledge, that the Software may not be 
   modified, copied or distributed unless used solely and exclusively in conjunction 
-  with a Texas Instruments Bluetooth® device. Other than for the foregoing purpose, 
+  with a Texas Instruments Bluetoothï¿½ device. Other than for the foregoing purpose, 
   you may not use, reproduce, copy, prepare derivative works of, modify, distribute, 
   perform, display or sell this Software and/or its documentation for any purpose.
  
   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
-  PROVIDED “AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+  PROVIDED ï¿½AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
@@ -37,6 +37,8 @@ package com.quanify.app;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.util.Log;
 
 /**
@@ -69,6 +71,7 @@ public class WriteQueue {
    * @throws NoSuchElementException
    *           The queue should never have to be asked to deque if it is empty because elements are only popped after callbacks.
    * */
+  @TargetApi(Build.VERSION_CODES.GINGERBREAD)
   public synchronized void issue() {
     if (writes.isEmpty()) {
       Log.w(TAG, "No runnable waiting for callback");
