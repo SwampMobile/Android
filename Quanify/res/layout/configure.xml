@@ -1,0 +1,506 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="5dp" >
+
+            <RelativeLayout
+                android:id="@+id/rv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/device_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rv_prev"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rv_name"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/devid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="ID "
+                    android:textColor="#333333"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/device_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/devid"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/devid"
+                    android:textColor="#333333"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rv0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rv_prev"
+                android:layout_centerHorizontal="true" >
+				<View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#AAAAAA" />
+				
+                <TextView
+                    android:id="@+id/tvThresholds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Thresholds"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/rv0" >
+
+                <TextView
+                    android:id="@+id/probe"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="16dp"
+                    android:text="Probe"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/probe_max"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/probe"
+                    android:layout_toLeftOf="@+id/c_probemax"
+                    android:layout_toRightOf="@+id/probe"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <TextView
+                    android:id="@+id/c_probemin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/probe_max"
+                    android:layout_alignBottom="@+id/probe_max"
+                    android:layout_alignParentRight="true"
+                    android:text="°C/°F" />
+
+                <EditText
+                    android:id="@+id/probe_min"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/c_probemin"
+                    android:layout_alignBottom="@+id/c_probemin"
+                    android:layout_toLeftOf="@+id/c_probemin"
+                    android:layout_toRightOf="@+id/c_probemax"
+                    android:ems="10"
+                    android:inputType="number" >
+                </EditText>
+
+                <TextView
+                    android:id="@+id/c_probemax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/probe_max"
+                    android:layout_alignBottom="@+id/probe_max"
+                    android:layout_toRightOf="@+id/probemax"
+                    android:text="°C/°F" />
+
+                <TextView
+                    android:id="@+id/probemax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="Max" />
+
+                <TextView
+                    android:id="@+id/probemin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/probe_min"
+                    android:text="Min" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/rv1" >
+
+                <TextView
+                    android:id="@+id/tag"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="16dp"
+                    android:text="Tag"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/tag_max"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/tag"
+                    android:layout_toLeftOf="@+id/c_tagmax"
+                    android:layout_toRightOf="@+id/tag"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <TextView
+                    android:id="@+id/c_tagmin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/tag_max"
+                    android:layout_alignBottom="@+id/tag_max"
+                    android:layout_alignParentRight="true"
+                    android:text="°C/°F" />
+
+                <EditText
+                    android:id="@+id/tag_min"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/c_tagmin"
+                    android:layout_alignBottom="@+id/c_tagmin"
+                    android:layout_toLeftOf="@+id/c_tagmin"
+                    android:layout_toRightOf="@+id/c_tagmax"
+                    android:ems="10"
+                    android:inputType="number" >
+                </EditText>
+
+                <TextView
+                    android:id="@+id/c_tagmax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/tag_max"
+                    android:layout_alignBottom="@+id/tag_max"
+                    android:layout_toRightOf="@+id/tagmax"
+                    android:text="°C/°F" />
+
+                <TextView
+                    android:id="@+id/tagmax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="Max" />
+
+                <TextView
+                    android:id="@+id/tagmin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toLeftOf="@+id/c_tagmin"
+                    android:text="Min" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/rv2" >
+
+                <TextView
+                    android:id="@+id/impact"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="16dp"
+                    android:text="Impact"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/spinner1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/impact"
+                    android:entries="@array/country_arrays"
+                    android:prompt="@string/country_prompt" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rv4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rv3"
+                android:layout_centerHorizontal="true" >
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#AAAAAA" />
+                
+                <TextView
+                    android:id="@+id/loggingSettings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Logging Settings"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rv5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rv4" >
+
+                <TextView
+                    android:id="@+id/temperatures"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:text="Temperature"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rv6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rv5"
+                android:layout_centerHorizontal="true" >
+
+                <TextView
+                    android:id="@+id/maxtimeinterval"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Max Time Interval"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/timeinterval"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/maxtimeinterval"
+                    android:layout_toLeftOf="@+id/hours"
+                    android:layout_toRightOf="@+id/maxtimeinterval"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <TextView
+                    android:id="@+id/hours"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/maxtimeinterval"
+                    android:layout_alignBottom="@+id/maxtimeinterval"
+                    android:layout_alignParentRight="true"
+                    android:text="hours" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rv7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rv6"
+                android:layout_centerHorizontal="true" >
+
+                <TextView
+                    android:id="@+id/resolution"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="16dp"
+                    android:text="ΔT Resolution"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/temperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/resolution"
+                    android:layout_toLeftOf="@+id/degrees"
+                    android:layout_toRightOf="@+id/resolution"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <TextView
+                    android:id="@+id/degrees"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/resolution"
+                    android:layout_alignBottom="@+id/resolution"
+                    android:layout_alignParentRight="true"
+                    android:text="°C/°F" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rv8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rv7"
+                android:layout_alignParentLeft="true" >
+
+                <TextView
+                    android:id="@+id/units"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Units:" 
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <Spinner
+                    android:id="@+id/spinner2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/units"
+                    android:entries="@array/country_arrays2"
+                    android:prompt="@string/country_prompt2" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rv9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rv8"
+                android:layout_centerHorizontal="true" >
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#AAAAAA" />
+                
+                <TextView
+                    android:id="@+id/wirelessSettings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Wireless Settings"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rv10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rv9"
+                android:layout_centerHorizontal="true" >
+
+                <TextView
+                    android:id="@+id/outputpower"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Output Power"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/spinner3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/outputpower"
+                    android:entries="@array/country_arrays3"
+                    android:prompt="@string/country_prompt3" />
+
+                <TextView
+                    android:id="@+id/dbm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/outputpower"
+                    android:layout_alignBottom="@+id/outputpower"
+                    android:layout_alignParentRight="true"
+                    android:text="dBm" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rv11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rv10"
+                android:layout_centerHorizontal="true" >
+
+                <TextView
+                    android:id="@+id/broadcastinterval"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Broadcast Interval"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/broadcastinterval"
+                    android:layout_toLeftOf="@+id/seconds"
+                    android:layout_toRightOf="@+id/broadcastinterval"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <TextView
+                    android:id="@+id/seconds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/broadcastinterval"
+                    android:layout_alignBottom="@+id/broadcastinterval"
+                    android:layout_alignParentRight="true"
+                    android:text="Seconds" />
+            </RelativeLayout>
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#AAAAAA" />
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>
