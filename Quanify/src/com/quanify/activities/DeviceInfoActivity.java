@@ -197,7 +197,11 @@ public class DeviceInfoActivity extends BaseActivity implements PropertyChangeLi
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				
-				showSimpleAlert("Sorry", "Selection not available at this time.");
+				Intent deviceInfoIntent = new Intent(DeviceInfoActivity.this, ViewDataActivity.class);
+				deviceInfoIntent.putExtra("position", 3);
+				deviceInfoIntent.putExtra("device_id", deviceInfo.id);
+				startActivity(deviceInfoIntent);
+				overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 				dialog.dismiss();
 			}
 		});

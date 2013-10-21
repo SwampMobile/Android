@@ -1,5 +1,6 @@
 package com.quanify.activities;
 
+import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -28,12 +29,14 @@ public class ViewDataActivity extends BaseActivity {
 	private ViewPager pager;
 	private MyPagerAdapter adapter;
 	private int currentColor = 0xffb74d3f;
+	int position = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_view_data);
 		String deviceId = this.getIntent().getStringExtra("device_id");
+		position = this.getIntent().getIntExtra("position",0);
         deviceInfo = DeviceList.getInstance().getDeviceById(deviceId);
 
 		tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
@@ -49,6 +52,7 @@ public class ViewDataActivity extends BaseActivity {
 		tabs.setViewPager(pager);
 
 		changeColor(currentColor);
+		pager.setCurrentItem(position);
 	}
 
 	private void changeColor(int newColor) {
@@ -71,6 +75,7 @@ public class ViewDataActivity extends BaseActivity {
 		changeColor(currentColor);
 	}
 
+	@SuppressLint("NewApi")
 	private Drawable.Callback drawableCallback = new Drawable.Callback() {
 		@Override
 		public void invalidateDrawable(Drawable who) {
