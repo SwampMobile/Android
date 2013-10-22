@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     
     <!-- For Google Maps -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -39,6 +40,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.quanify.activities.OnlineRecordSearchActivity"
+            android:label="Online Reporting" />
         <activity
             android:name="com.quanify.activities.DatabaseSearchActivity"
             android:label="Quanify Database" />

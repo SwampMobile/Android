@@ -37,7 +37,8 @@ public class MainActivity extends Activity
 			@Override
 			public void onClick(View arg0) 
 			{
-				startActivity(new Intent(MainActivity.this, DatabaseSearchActivity.class));
+//				startActivity(new Intent(MainActivity.this, DatabaseSearchActivity.class));
+				startActivity(new Intent(MainActivity.this, OnlineRecordSearchActivity.class));
 			}
         });
     }
