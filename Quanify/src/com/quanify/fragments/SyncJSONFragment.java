@@ -81,6 +81,8 @@ public class SyncJSONFragment extends Fragment {
 	private EditText vValue;
 	private Button syncSensor;
 	private Button initiateShipment;
+	
+	private String customerBarcodeValue = ""; // hacked in here for a quick scanner implementation
 
 
 	@Override
@@ -206,6 +208,11 @@ public class SyncJSONFragment extends Fragment {
 			        }).start();
 			}
 		});
+		
+		
+		customerBarcode.setText(customerBarcodeValue);
+		
+		
 		return fl;
 	}
 
@@ -259,6 +266,21 @@ public class SyncJSONFragment extends Fragment {
 		tag.addSensor(sensor);	
 		record.addTags(tag);
 		return record;
+	}
+	
+	/**
+	 * Used to set the barcode value in this form.  This method was added when the scanner was
+	 * added.  It is likely that this method should be replaced by more robust behaviors for
+	 * getting/setting form data.
+	 * 
+	 * @param barcodeValue
+	 */
+	public void setBarcodeValue(String barcodeValue)
+	{
+		customerBarcodeValue = barcodeValue;
+		
+		if(customerBarcode != null)
+			customerBarcode.setText(barcodeValue);
 	}
 
 	@Override public void onSaveInstanceState(Bundle outState) { 

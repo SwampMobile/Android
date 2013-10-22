@@ -1,6 +1,8 @@
 package com.quanify.activities;
 
+import android.annotation.TargetApi;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -72,6 +74,7 @@ public class ViewDataActivity extends BaseActivity {
 	}
 
 	private Drawable.Callback drawableCallback = new Drawable.Callback() {
+		@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 		@Override
 		public void invalidateDrawable(Drawable who) {
 			getActionBar().setBackgroundDrawable(who);
@@ -90,7 +93,7 @@ public class ViewDataActivity extends BaseActivity {
 
 	public class MyPagerAdapter extends FragmentPagerAdapter implements IconTabProvider {
 
-		private final String[] TITLES = { "Temperature", "Impact", "Location","Sync Data" };
+		private final String[] TITLES = { "Temperature", "Impact", "Location"};//,"Sync Data" };
 
 		public MyPagerAdapter(FragmentManager fm) {
 			super(fm);
@@ -115,8 +118,8 @@ public class ViewDataActivity extends BaseActivity {
 				return new ImpactFragment();
 			case 2:
 				return new LocationFragment();
-			case 3:
-				return new SyncJSONFragment();
+//			case 3:
+//				return new SyncJSONFragment();
 			}
 			return SuperAwesomeCardFragment.newInstance(position);
 		}
@@ -131,8 +134,8 @@ public class ViewDataActivity extends BaseActivity {
 				return R.drawable.shocked_box_48;
 			case 2:
 				return R.drawable.location_48;
-			case 3:
-				return R.drawable.cloud_sync_48;
+//			case 3:
+//				return R.drawable.cloud_sync_48;
 			}
 			return R.drawable.ic_launch;
 		}

@@ -195,9 +195,10 @@ public class DeviceInfoActivity extends BaseActivity implements PropertyChangeLi
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+//				showSimpleAlert("Sorry", "Selection not available at this time.");
 				
-				showSimpleAlert("Sorry", "Selection not available at this time.");
+				startActivity(new Intent(DeviceInfoActivity.this, ScanActivity.class));
+				
 				dialog.dismiss();
 			}
 		});
