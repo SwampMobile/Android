@@ -18,17 +18,23 @@ package com.quanify.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.FrameLayout.LayoutParams;
 
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
 import com.quanify.R;
 
-public class LocationFragment extends Fragment {
-
+public class LocationFragment extends Fragment 
+{
+	private MapView mapView;
+	private GoogleMap map;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -37,17 +43,46 @@ public class LocationFragment extends Fragment {
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) 
+	{
+		View v = inflater.inflate(R.layout.fragment_location, null);
 		
-		LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-
-		FrameLayout fl = new FrameLayout(getActivity());
-		final int margin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, getResources()
-				.getDisplayMetrics());
-		params.setMargins(margin, margin, margin, margin);
-		fl.setLayoutParams(params);
-		fl.setBackgroundColor(0xffa9a9a9);
-		inflater.inflate(R.layout.fragment_device_graph, fl);
+		mapView = (MapView)v.findViewById(R.id.map_view);
+		mapView.onCreate(savedInstanceState);
+		mapView.onResume();
+		
+		try
+		{
+			MapsInitializer.initialize(getActivity());
+		}
+		catch(GooglePlayServicesNotAvailableException e)
+		{
+			e.printStackTrace();
+		}
+		
+		map = mapView.getMap();
+		map.setMyLocationEnabled(true);
+		
+		map.moveCamera(CameraUpdateFactory.newCameraPosition(
+				CameraPosition.fromLatLngZoom(
+					new LatLng(
+						29.6520f, 
+						-82.3250f
+					), 
+				13)
+		));
+		
+		return v;
+		
+//		LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+//
+//		FrameLayout fl = new FrameLayout(getActivity());
+//		final int margin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, getResources()
+//				.getDisplayMetrics());
+//		params.setMargins(margin, margin, margin, margin);
+//		fl.setLayoutParams(params);
+//		fl.setBackgroundColor(0xffa9a9a9);
+//		inflater.inflate(R.layout.fragment_device_graph, fl);
 
 		/*final int margin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, getResources()
 				.getDisplayMetrics());
@@ -61,7 +96,36 @@ public class LocationFragment extends Fragment {
 		v.setText("CARD " + (position + 1));
 
 		fl.addView(v);*/
-		return fl;
+		
+//		return fl;
+	}
+	
+	@Override
+	public void onResume()
+	{
+		super.onResume();
+		mapView.onResume();
+	}
+	
+	@Override
+	public void onPause()
+	{
+		super.onPause();
+		mapView.onPause();
+	}
+	
+	@Override
+	public void onDestroy()
+	{
+		super.onDestroy();
+		mapView.onDestroy();
+	}
+	
+	@Override
+	public void onLowMemory()
+	{
+		super.onLowMemory();
+		mapView.onLowMemory();
 	}
 
 	@Override public void onSaveInstanceState(Bundle outState) { 
